@@ -1,5 +1,13 @@
 <h1>Nume:</h1>
-<input>
+<input #Inputname placeholder="name" />
+
 <h2>Mesaj:</h2>
-<input>
-<button>Trimite mesaj</button>
+
+<input #Inputcontent placeholder="Mesaj" />
+
+<button (click)="getValues(Inputname.value,Inputcontent.value);
+                    Inputcontent.value='';
+                    Inputname.value=''">
+                            Trimite mesaj
+                </button>
+
