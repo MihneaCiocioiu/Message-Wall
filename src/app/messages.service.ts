@@ -9,20 +9,16 @@ import {Message} from './mesaj';
 })
 export class MessagesService {
 
-  Url:String='localhost';
+  Url:string='https://raw.githubusercontent.com/MihneaCiocioiu/Message-Wall/master/db.json';
 
-  options: {
-    headers?: HttpHeaders 
-    observe?: 'body'
-    params?: HttpParams|{[param: string]: string | number | boolean | ReadonlyArray<string | number | boolean>},
-    reportProgress?: boolean,
-    responseType?: 'arraybuffer'|'blob'|'json'|'text',
-    withCredentials?: boolean,
+  getMessages():Observable<Message[]> {
+    return this.http.get<Message[]>(this.Url)
   }
 
-  getMessages():Message {
-    this.http.get(this.Url+':3000',)
-  }
+
+  // getMessages():Observable<Message[]> {
+  //   return this.http.get<Message[]>(this.Url)
+  // }
 
   constructor(private http:HttpClient) { }
 

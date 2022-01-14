@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagesService } from '../messages.service';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import {Message} from '../mesaj';
 
 @Component({
@@ -8,22 +11,13 @@ import {Message} from '../mesaj';
 })
 export class MessagesComponent implements OnInit {
 
+  messages:Message[]=[];
   
-  mesaj1:Message= {
-    content:'caca',
-    name:'pisat'
-  };
+  constructor(private messagesService:MessagesService) { }
   
-  mesaj2:Message= {
-    content:'mapis',
-    name:'macac'
-  };
-  
-  mesaje:Message[]=[this.mesaj1,this.mesaj2];
-
-  constructor() { }
-
   ngOnInit(): void {
+    this.messagesService.getMessages()
+      .subscribe(data=> this.messages=data);
   }
 
 }
