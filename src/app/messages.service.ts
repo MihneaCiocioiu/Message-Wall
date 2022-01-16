@@ -9,16 +9,15 @@ import {Message} from './mesaj';
 })
 export class MessagesService {
 
-  Url:string='https://raw.githubusercontent.com/MihneaCiocioiu/Message-Wall/master/db.json';
+  Url:string='http://localhost:3000/';
 
   getMessages():Observable<Message[]> {
-    return this.http.get<Message[]>(this.Url)
+    return this.http.get<Message[]>(this.Url+'get')
   }
 
-
-  // getMessages():Observable<Message[]> {
-  //   return this.http.get<Message[]>(this.Url)
-  // }
+  sendMessage(message:Message) {
+    return this.http.post<Message>(this.Url+'post',message)
+  }
 
   constructor(private http:HttpClient) { }
 
