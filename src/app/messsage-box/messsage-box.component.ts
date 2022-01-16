@@ -1,4 +1,6 @@
+import { Message } from '../mesaj';
 import { Component, Input, OnInit } from '@angular/core';
+import { MessagesService } from '../messages.service';
 
 @Component({
   selector: 'app-messsage-box',
@@ -10,12 +12,19 @@ export class MesssageBoxComponent implements OnInit {
   name?:string;
   content?:string;
 
-  getValues(name:string, content:string):void {
-    this.name=name;
-    this.content=content;
+  currentMessage?:Message;
+
+  sendValues(name:string, content:string):void {
+    this.currentMessage= {
+      content,
+      name
+    };
+    console.log(this.currentMessage);
+    this.messageService.sendMessage(this.currentMessage)
+      .subscribe();
   }
 
-  constructor() { }
+  constructor(private messageService: MessagesService) { }
 
   ngOnInit(): void {
   }
