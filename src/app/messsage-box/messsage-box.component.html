@@ -1,13 +1,20 @@
-<h1>Nume:</h1>
-<input #Inputname placeholder="name" />
 
-<h2>Mesaj:</h2>
+<div class="row justify-content-sm-center" style="max-width: 18rem;">
 
-<input #Inputcontent placeholder="Mesaj" />
+<div class="form-floating mb-3">
+        <input class="form-control" id="floatingTextarea" placeholder="Marcel Popescu" #Inputname>
+        <label for="floatingInput">Name</label>
+      </div>
 
-<button (click)="sendValues(Inputname.value,Inputcontent.value);
+<div class="form-floating">
+        <input class="form-control" id="floatingTextarea" placeholder="Heello" #Inputcontent>
+        <label for="floatingPassword">Message</label>
+      </div>
+
+<button class="btn btn-primary" (click)="sendValues(Inputname.value,Inputcontent.value);
                     Inputcontent.value='';
                     Inputname.value=''">
                             Trimite mesaj
                 </button>
 
+</div>

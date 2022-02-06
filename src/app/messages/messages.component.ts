@@ -17,7 +17,7 @@ export class MessagesComponent implements OnInit {
   
   ngOnInit(): void {
     this.messagesService.getMessages()
-      .subscribe(data=> this.messages=data);
+      .subscribe(data=> this.messages=data.reverse());
     console.log(this.messages);
   }
 

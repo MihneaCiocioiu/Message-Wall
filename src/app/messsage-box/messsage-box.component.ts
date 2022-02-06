@@ -15,11 +15,15 @@ export class MesssageBoxComponent implements OnInit {
   currentMessage?:Message;
 
   sendValues(name:string, content:string):void {
+    if (!name||!content) {
+      alert("INVALID NAME OR MESSAGE!");
+      return;
+    }
     this.currentMessage= {
       content,
       name
     };
-    console.log(this.currentMessage);
+    this.messageService.getMessages();
     this.messageService.sendMessage(this.currentMessage)
       .subscribe();
   }
