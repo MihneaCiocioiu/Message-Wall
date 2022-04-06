@@ -1,6 +1,10 @@
 # App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
+This is a simple project of mine made using the MEAN tech stack.
+
+The repository is for the front end of the app.
+
+A user can upload a post to the page (A post consists of a name and a message), and can view the entirety of the messages posted before.
 
 ## Development server
 
